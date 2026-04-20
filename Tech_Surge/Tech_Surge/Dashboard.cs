@@ -14,9 +14,14 @@ namespace Tech_Surge
 {
     public partial class Dashboard : Form
     {
+        int seconds = 0;
+        bool isRunning = false;
         public Dashboard()
         {
             InitializeComponent();
+
+
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -26,26 +31,33 @@ namespace Tech_Surge
 
         private void btnSaveNote_Click(object sender, EventArgs e)
         {
-            if (txtNotes.Text == "")
+            if (txtNote1.Text == "" || txtNote2.Text == "" || txtNote3.Text == "" || txtNote4.Text == "")
             {
                 MessageBox.Show("Please enter a note!");
                 return;
             }
-            DBConnect db = new DBConnect();
+
             try
             {
+                DBConnect db = new DBConnect();
                 db.Open();
 
-                string query = "INSERT INTO notes (content) VALUES (@content)";
+                string query = "INSERT INTO notez (note1, note2, note3, note4) VALUES (@n1, @n2, @n3, @n4)";
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
 
-                cmd.Parameters.AddWithValue("@content", txtNotes.Text);
+                cmd.Parameters.AddWithValue("@n1", txtNote1.Text);
+                cmd.Parameters.AddWithValue("@n2", txtNote2.Text);
+                cmd.Parameters.AddWithValue("@n3", txtNote3.Text);
+                cmd.Parameters.AddWithValue("@n4", txtNote4.Text);
 
                 cmd.ExecuteNonQuery();
 
                 db.Close();
-                txtNotes.Clear();
 
+                txtNote1.Clear();
+                txtNote2.Clear();
+                txtNote3.Clear();
+                txtNote4.Clear();
 
 
                 MessageBox.Show("Note saved to database!");
@@ -54,14 +66,19 @@ namespace Tech_Surge
             {
                 MessageBox.Show("Error saving note: " + ex.Message);
             }
+
+
         }
 
 
         private void btnAddCard_Click(object sender, EventArgs e)
         {
 
-           string questions = rtxtQuestions.Text.Trim();
-           string answer = txtAnswer.Text.Trim();
+            FlashLoad();
+
+            string questions = rtxtQuestions.Text.Trim();
+            string answer = txtAnswer.Text.Trim();
+
 
 
 
@@ -96,6 +113,8 @@ namespace Tech_Surge
             {
                 db.Close();
             }
+
+
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -275,7 +294,38 @@ namespace Tech_Surge
             }
 
         }
+        private void FlashLoad()
+        {
+            DBConnect db = new DBConnect();
+            try
+            {
+                db.Open();
+                string query = "SELECT ID, Questions, Answer FROM flashcard";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
+                MySql.Data.MySqlClient.MySqlDataAdapter adapter = new MySql.Data.MySqlClient.MySqlDataAdapter(cmd);
 
+                System.Data.DataTable table = new System.Data.DataTable();
+                adapter.Fill(table);
+
+                dgvFlashCards.DataSource = table;
+
+                dgvFlashCards.Columns["ID"].HeaderText = "ID";
+                dgvFlashCards.Columns["Questions"].HeaderText = "Questions";
+                dgvFlashCards.Columns["Answer"].HeaderText = "Answer";
+
+
+                cmd.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
         private void UploadLoad()
         {
             DBConnect db = new DBConnect();
@@ -385,10 +435,10 @@ namespace Tech_Surge
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            FlashcardTest flashcard = new FlashcardTest();
+            FlashcardTests flashcard = new FlashcardTests();
             flashcard.Show();
             this.Hide();
-         
+
 
         }
 
@@ -399,6 +449,8 @@ namespace Tech_Surge
 
         private void tabPage5_Click(object sender, EventArgs e)
         {
+          
+
 
         }
 
@@ -419,6 +471,101 @@ namespace Tech_Surge
 
         private void label1_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnRefFlash_Click(object sender, EventArgs e)
+        {
+            FlashLoad();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+
+
+            DBConnect db = new DBConnect();
+
+            try
+            {
+                db.Open();
+
+                string query = "SELECT note1, note2, note3, note4 FROM notez LIMIT 1";
+                MySql.Data.MySqlClient.MySqlCommand cmd =
+                    new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
+
+                MySql.Data.MySqlClient.MySqlDataReader reader = cmd.ExecuteReader();
+
+                // This line is Generated from Ai. To Load user notepad. Also due to time limit in developing
+
+                if (reader.Read())
+                {
+                    txtNote1.Text = reader["note1"].ToString();
+                    txtNote2.Text = reader["note2"].ToString();
+                    txtNote3.Text = reader["note3"].ToString();
+                    txtNote4.Text = reader["note4"].ToString();
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            isRunning = true;
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            seconds++;
+
+            int minutes = seconds / 60;
+            int secs = seconds % 60;
+
+            lblTimer.Text = $"{minutes:00} : {secs:00}";
+        }
+
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            isRunning = false;
+            seconds = 0;
+
+            lblTimer.Text = "00:00";
 
         }
     }

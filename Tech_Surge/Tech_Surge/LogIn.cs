@@ -65,20 +65,43 @@ namespace Tech_Surge
             {
                 db.Close();
             }
+
+            txtUser.Clear();
+            txtPass.Clear();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
-            Registration register = new Registration();
-            register.Show();
 
-            this.Hide();
         }
 
         private void LogIn_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Registration register = new Registration();
+            register.Show();
+
+            this.Hide();
         }
     }
 }

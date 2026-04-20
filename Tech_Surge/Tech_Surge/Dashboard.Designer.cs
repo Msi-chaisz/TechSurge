@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            richTextBox2 = new RichTextBox();
-            richTextBox1 = new RichTextBox();
-            richTextBox4 = new ListBox();
+            btnLoad = new Button();
+            txtNote4 = new RichTextBox();
+            txtNote3 = new RichTextBox();
+            txtNote2 = new RichTextBox();
             btnSaveNote = new Button();
-            txtNotes = new TextBox();
+            txtNote1 = new TextBox();
             tabPage2 = new TabPage();
+            btnRefFlash = new Button();
             btnTest = new Button();
-            dataGridView2 = new DataGridView();
+            dgvFlashCards = new DataGridView();
             rtxtQuestions = new RichTextBox();
             btnAddCard = new Button();
             txtAnswer = new TextBox();
@@ -57,22 +60,43 @@
             btnUpload = new Button();
             tabPage5 = new TabPage();
             btnStart = new Button();
-            lblMiddleTime = new Label();
+            lblTimer = new Label();
             btnReset = new Button();
             btnPause = new Button();
             panel1 = new Panel();
             lblTime = new Label();
             tabPage6 = new TabPage();
+            textBox3 = new TextBox();
+            label4 = new Label();
+            panel2 = new Panel();
+            btnUpdateAcc = new Button();
+            label8 = new Label();
+            label5 = new Label();
+            textBox7 = new TextBox();
+            label6 = new Label();
+            textBox6 = new TextBox();
+            label7 = new Label();
+            textBox5 = new TextBox();
+            textBox4 = new TextBox();
+            pictureBox1 = new PictureBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            label3 = new Label();
+            label2 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvFlashCards).BeginInit();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTaskAnnouce).BeginInit();
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFolder).BeginInit();
             tabPage5.SuspendLayout();
             panel1.SuspendLayout();
+            tabPage6.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -91,11 +115,12 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(richTextBox2);
-            tabPage1.Controls.Add(richTextBox1);
-            tabPage1.Controls.Add(richTextBox4);
+            tabPage1.Controls.Add(btnLoad);
+            tabPage1.Controls.Add(txtNote4);
+            tabPage1.Controls.Add(txtNote3);
+            tabPage1.Controls.Add(txtNote2);
             tabPage1.Controls.Add(btnSaveNote);
-            tabPage1.Controls.Add(txtNotes);
+            tabPage1.Controls.Add(txtNote1);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -105,35 +130,43 @@
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
             // 
-            // richTextBox2
+            // btnLoad
             // 
-            richTextBox2.Location = new Point(403, 81);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(661, 357);
-            richTextBox2.TabIndex = 4;
-            richTextBox2.Text = "";
+            btnLoad.Location = new Point(996, 23);
+            btnLoad.Name = "btnLoad";
+            btnLoad.Size = new Size(100, 23);
+            btnLoad.TabIndex = 6;
+            btnLoad.Text = "Load";
+            btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
             // 
-            // richTextBox1
+            // txtNote4
             // 
-            richTextBox1.Location = new Point(49, 81);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(348, 357);
-            richTextBox1.TabIndex = 3;
-            richTextBox1.Text = "";
+            txtNote4.Location = new Point(49, 444);
+            txtNote4.Name = "txtNote4";
+            txtNote4.Size = new Size(1047, 100);
+            txtNote4.TabIndex = 5;
+            txtNote4.Text = "";
             // 
-            // richTextBox4
+            // txtNote3
             // 
-            richTextBox4.FormattingEnabled = true;
-            richTextBox4.ItemHeight = 15;
-            richTextBox4.Location = new Point(49, 444);
-            richTextBox4.Name = "richTextBox4";
-            richTextBox4.Size = new Size(1015, 94);
-            richTextBox4.TabIndex = 2;
-            richTextBox4.SelectedIndexChanged += stNotes_SelectedIndexChanged;
+            txtNote3.Location = new Point(363, 81);
+            txtNote3.Name = "txtNote3";
+            txtNote3.Size = new Size(733, 357);
+            txtNote3.TabIndex = 4;
+            txtNote3.Text = "";
+            // 
+            // txtNote2
+            // 
+            txtNote2.Location = new Point(49, 81);
+            txtNote2.Name = "txtNote2";
+            txtNote2.Size = new Size(308, 357);
+            txtNote2.TabIndex = 3;
+            txtNote2.Text = "";
             // 
             // btnSaveNote
             // 
-            btnSaveNote.Location = new Point(989, 23);
+            btnSaveNote.Location = new Point(915, 23);
             btnSaveNote.Name = "btnSaveNote";
             btnSaveNote.Size = new Size(75, 23);
             btnSaveNote.TabIndex = 1;
@@ -141,17 +174,18 @@
             btnSaveNote.UseVisualStyleBackColor = true;
             btnSaveNote.Click += btnSaveNote_Click;
             // 
-            // txtNotes
+            // txtNote1
             // 
-            txtNotes.Location = new Point(49, 52);
-            txtNotes.Name = "txtNotes";
-            txtNotes.Size = new Size(1015, 23);
-            txtNotes.TabIndex = 0;
+            txtNote1.Location = new Point(49, 52);
+            txtNote1.Name = "txtNote1";
+            txtNote1.Size = new Size(1047, 23);
+            txtNote1.TabIndex = 0;
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(btnRefFlash);
             tabPage2.Controls.Add(btnTest);
-            tabPage2.Controls.Add(dataGridView2);
+            tabPage2.Controls.Add(dgvFlashCards);
             tabPage2.Controls.Add(rtxtQuestions);
             tabPage2.Controls.Add(btnAddCard);
             tabPage2.Controls.Add(txtAnswer);
@@ -163,6 +197,16 @@
             tabPage2.Text = "Flash Cards";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnRefFlash
+            // 
+            btnRefFlash.Location = new Point(1009, 30);
+            btnRefFlash.Name = "btnRefFlash";
+            btnRefFlash.Size = new Size(75, 23);
+            btnRefFlash.TabIndex = 7;
+            btnRefFlash.Text = "SHOW";
+            btnRefFlash.UseVisualStyleBackColor = true;
+            btnRefFlash.Click += btnRefFlash_Click;
+            // 
             // btnTest
             // 
             btnTest.Location = new Point(634, 516);
@@ -173,13 +217,13 @@
             btnTest.UseVisualStyleBackColor = true;
             btnTest.Click += btnTest_Click;
             // 
-            // dataGridView2
+            // dgvFlashCards
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(796, 59);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(288, 480);
-            dataGridView2.TabIndex = 5;
+            dgvFlashCards.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFlashCards.Location = new Point(796, 59);
+            dgvFlashCards.Name = "dgvFlashCards";
+            dgvFlashCards.Size = new Size(288, 480);
+            dgvFlashCards.TabIndex = 5;
             // 
             // rtxtQuestions
             // 
@@ -354,7 +398,7 @@
             // tabPage5
             // 
             tabPage5.Controls.Add(btnStart);
-            tabPage5.Controls.Add(lblMiddleTime);
+            tabPage5.Controls.Add(lblTimer);
             tabPage5.Controls.Add(btnReset);
             tabPage5.Controls.Add(btnPause);
             tabPage5.Controls.Add(panel1);
@@ -375,16 +419,17 @@
             btnStart.TabIndex = 4;
             btnStart.Text = "Start";
             btnStart.UseVisualStyleBackColor = true;
+            btnStart.Click += btnStart_Click;
             // 
-            // lblMiddleTime
+            // lblTimer
             // 
-            lblMiddleTime.AutoSize = true;
-            lblMiddleTime.Location = new Point(540, 313);
-            lblMiddleTime.Name = "lblMiddleTime";
-            lblMiddleTime.Size = new Size(38, 15);
-            lblMiddleTime.TabIndex = 3;
-            lblMiddleTime.Text = "label1";
-            lblMiddleTime.Click += label1_Click;
+            lblTimer.AutoSize = true;
+            lblTimer.Location = new Point(540, 313);
+            lblTimer.Name = "lblTimer";
+            lblTimer.Size = new Size(38, 15);
+            lblTimer.TabIndex = 3;
+            lblTimer.Text = "label1";
+            lblTimer.Click += label1_Click;
             // 
             // btnReset
             // 
@@ -394,6 +439,7 @@
             btnReset.TabIndex = 2;
             btnReset.Text = "Reset Timer";
             btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click_1;
             // 
             // btnPause
             // 
@@ -420,12 +466,20 @@
             lblTime.ForeColor = Color.White;
             lblTime.Location = new Point(512, 32);
             lblTime.Name = "lblTime";
-            lblTime.Size = new Size(34, 15);
+            lblTime.Size = new Size(121, 15);
             lblTime.TabIndex = 0;
-            lblTime.Text = "Time";
+            lblTime.Text = "FOCUS IN STUDYING!";
             // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(textBox3);
+            tabPage6.Controls.Add(label4);
+            tabPage6.Controls.Add(panel2);
+            tabPage6.Controls.Add(pictureBox1);
+            tabPage6.Controls.Add(textBox2);
+            tabPage6.Controls.Add(textBox1);
+            tabPage6.Controls.Add(label3);
+            tabPage6.Controls.Add(label2);
             tabPage6.Location = new Point(4, 24);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
@@ -433,6 +487,166 @@
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Account";
             tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            textBox3.Enabled = false;
+            textBox3.Location = new Point(322, 170);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(309, 23);
+            textBox3.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(231, 170);
+            label4.Name = "label4";
+            label4.Size = new Size(69, 15);
+            label4.TabIndex = 6;
+            label4.Text = "Account ID:";
+            label4.Click += label4_Click;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnUpdateAcc);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(textBox7);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(textBox6);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(textBox5);
+            panel2.Controls.Add(textBox4);
+            panel2.Location = new Point(189, 234);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(740, 274);
+            panel2.TabIndex = 5;
+            // 
+            // btnUpdateAcc
+            // 
+            btnUpdateAcc.Location = new Point(561, 233);
+            btnUpdateAcc.Name = "btnUpdateAcc";
+            btnUpdateAcc.Size = new Size(140, 23);
+            btnUpdateAcc.TabIndex = 11;
+            btnUpdateAcc.Text = "Update Account";
+            btnUpdateAcc.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(36, 179);
+            label8.Name = "label8";
+            label8.Size = new Size(49, 15);
+            label8.TabIndex = 8;
+            label8.Text = "Section:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(36, 134);
+            label5.Name = "label5";
+            label5.Size = new Size(65, 15);
+            label5.TabIndex = 10;
+            label5.Text = "Student ID:";
+            // 
+            // textBox7
+            // 
+            textBox7.Enabled = false;
+            textBox7.Location = new Point(154, 171);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(547, 23);
+            textBox7.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(35, 90);
+            label6.Name = "label6";
+            label6.Size = new Size(66, 15);
+            label6.TabIndex = 9;
+            label6.Text = "Last Name:";
+            // 
+            // textBox6
+            // 
+            textBox6.Enabled = false;
+            textBox6.Location = new Point(154, 126);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(547, 23);
+            textBox6.TabIndex = 2;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(34, 56);
+            label7.Name = "label7";
+            label7.Size = new Size(67, 15);
+            label7.TabIndex = 8;
+            label7.Text = "First Name:";
+            label7.Click += label7_Click;
+            // 
+            // textBox5
+            // 
+            textBox5.Enabled = false;
+            textBox5.Location = new Point(154, 82);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(547, 23);
+            textBox5.TabIndex = 1;
+            // 
+            // textBox4
+            // 
+            textBox4.Enabled = false;
+            textBox4.Location = new Point(154, 48);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(547, 23);
+            textBox4.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.imageyay;
+            pictureBox1.Location = new Point(733, 23);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(196, 196);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // textBox2
+            // 
+            textBox2.Enabled = false;
+            textBox2.Location = new Point(322, 129);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(309, 23);
+            textBox2.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(322, 100);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(309, 23);
+            textBox1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(231, 137);
+            label3.Name = "label3";
+            label3.Size = new Size(63, 15);
+            label3.TabIndex = 1;
+            label3.Text = "Password: ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(231, 103);
+            label2.Name = "label2";
+            label2.Size = new Size(63, 15);
+            label2.TabIndex = 0;
+            label2.Text = "Username:";
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick_1;
             // 
             // Dashboard
             // 
@@ -448,7 +662,7 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvFlashCards).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTaskAnnouce).EndInit();
@@ -459,6 +673,11 @@
             tabPage5.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            tabPage6.ResumeLayout(false);
+            tabPage6.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -470,9 +689,8 @@
         private TabPage tabPage3;
         private TabPage tabPage4;
         private TabPage tabPage5;
-        private ListBox richTextBox4;
         private Button btnSaveNote;
-        private TextBox txtNotes;
+        private TextBox txtNote1;
         private Button btnAddCard;
         private TextBox txtAnswer;
         private Button btnAddTask;
@@ -485,10 +703,10 @@
         private Button btnUpdate;
         private TabPage tabPage6;
         private Button btnShow;
-        private RichTextBox richTextBox1;
+        private RichTextBox txtNote2;
         private DataGridView dgvFolder;
-        private RichTextBox richTextBox2;
-        private DataGridView dataGridView2;
+        private RichTextBox txtNote3;
+        private DataGridView dgvFlashCards;
         private RichTextBox rtxtQuestions;
         private Button btnRefresh;
         private Button btnTest;
@@ -496,8 +714,29 @@
         private Button btnPause;
         private Panel panel1;
         private Label lblTime;
-        private Label lblMiddleTime;
+        private Label lblTimer;
         private Button btnStart;
         private Label label1;
+        private Button btnRefFlash;
+        private Label label4;
+        private Panel panel2;
+        private PictureBox pictureBox1;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private Label label3;
+        private Label label2;
+        private TextBox textBox3;
+        private Label label5;
+        private TextBox textBox7;
+        private Label label6;
+        private TextBox textBox6;
+        private Label label7;
+        private TextBox textBox5;
+        private TextBox textBox4;
+        private Button btnUpdateAcc;
+        private Label label8;
+        private RichTextBox txtNote4;
+        private Button btnLoad;
+        private System.Windows.Forms.Timer timer1;
     }
 }

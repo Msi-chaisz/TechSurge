@@ -41,6 +41,7 @@
             txtUser = new TextBox();
             label5 = new Label();
             label6 = new Label();
+            label7 = new Label();
             SuspendLayout();
             // 
             // txtFirstName
@@ -150,11 +151,21 @@
             label6.TabIndex = 13;
             label6.Text = "Password";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(228, 38);
+            label7.Name = "label7";
+            label7.Size = new Size(147, 15);
+            label7.TabIndex = 14;
+            label7.Text = "ACCOUNT INFORMATION";
+            // 
             // Registration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(574, 555);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(txtUser);
@@ -189,5 +200,6 @@
         private TextBox txtUser;
         private Label label5;
         private Label label6;
+        private Label label7;
     }
 }
