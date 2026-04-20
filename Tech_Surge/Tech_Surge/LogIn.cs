@@ -22,7 +22,7 @@ namespace Tech_Surge
             string username = txtUser.Text.Trim();
             string password = txtPass.Text.Trim();
 
-            if (username =="" || password== "")
+            if (username == "" || password == "")
             {
                 MessageBox.Show("Please input your credentials!");
                 return;
@@ -53,11 +53,11 @@ namespace Tech_Surge
                 else
                 {
                     MessageBox.Show("Invalid Credentials!");
-                    
+
                 }
 
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Errors In:" + ex);
             }
@@ -65,6 +65,20 @@ namespace Tech_Surge
             {
                 db.Close();
             }
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
+            Registration register = new Registration();
+            register.Show();
+
+            this.Hide();
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

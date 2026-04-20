@@ -32,12 +32,13 @@
             txtPass = new TextBox();
             btnLog = new Button();
             label1 = new Label();
+            btnRegister = new Button();
             SuspendLayout();
             // 
             // txtUser
             // 
             txtUser.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUser.Location = new Point(38, 122);
+            txtUser.Location = new Point(43, 142);
             txtUser.Name = "txtUser";
             txtUser.PlaceholderText = "Username";
             txtUser.Size = new Size(326, 33);
@@ -46,7 +47,7 @@
             // txtPass
             // 
             txtPass.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPass.Location = new Point(38, 170);
+            txtPass.Location = new Point(43, 190);
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
             txtPass.PlaceholderText = "Password";
@@ -56,7 +57,7 @@
             // btnLog
             // 
             btnLog.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLog.Location = new Point(38, 223);
+            btnLog.Location = new Point(43, 243);
             btnLog.Name = "btnLog";
             btnLog.Size = new Size(326, 44);
             btnLog.TabIndex = 2;
@@ -67,23 +68,37 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(38, 81);
+            label1.Font = new Font("Rockwell", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(43, 68);
             label1.Name = "label1";
-            label1.Size = new Size(31, 15);
+            label1.Size = new Size(155, 39);
             label1.TabIndex = 3;
-            label1.Text = "AAA";
+            label1.Text = "iAralYan";
+            // 
+            // btnRegister
+            // 
+            btnRegister.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRegister.Location = new Point(43, 293);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(326, 42);
+            btnRegister.TabIndex = 4;
+            btnRegister.Text = "Register Account";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
             // LogIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(406, 450);
+            ClientSize = new Size(415, 465);
+            Controls.Add(btnRegister);
             Controls.Add(label1);
             Controls.Add(btnLog);
             Controls.Add(txtPass);
             Controls.Add(txtUser);
             Name = "LogIn";
             Text = "LogIn";
+            Load += LogIn_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -94,5 +109,6 @@
         private TextBox txtPass;
         private Button btnLog;
         private Label label1;
+        private Button btnRegister;
     }
 }

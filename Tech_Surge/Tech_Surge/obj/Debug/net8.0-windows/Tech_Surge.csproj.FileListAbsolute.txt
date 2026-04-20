@@ -30,3 +30,5 @@ C:\Users\CL2~PC33\source\repos\Tech_Surge\Tech_Surge\obj\Debug\net8.0-windows\re
 C:\Users\CL2~PC33\source\repos\Tech_Surge\Tech_Surge\obj\Debug\net8.0-windows\Tech_Surge.pdb
 C:\Users\CL2~PC33\source\repos\Tech_Surge\Tech_Surge\obj\Debug\net8.0-windows\Tech_Surge.genruntimeconfig.cache
 C:\Users\CL2~PC33\source\repos\Tech_Surge\Tech_Surge\obj\Debug\net8.0-windows\ref\Tech_Surge.dll
+C:\Users\CL2~PC33\source\repos\Tech_Surge\Tech_Surge\obj\Debug\net8.0-windows\Tech_Surge.Registration.resources
+C:\Users\CL2~PC33\source\repos\Tech_Surge\Tech_Surge\obj\Debug\net8.0-windows\Tech_Surge.FlashcardTest.resources
